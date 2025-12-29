@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: 4dc4aa4a2f7306845a5a739bdba55f60
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -768378004731196610
+    second: FreePack 2_0
+  - first:
+      213: -1048333750960048375
+    second: FreePack 2_1
+  - first:
+      213: -163652287022659562
+    second: FreePack 2_2
+  - first:
+      213: 8899283858398116702
+    second: FreePack 2_3
+  - first:
+      213: -778227951107547785
+    second: FreePack 2_4
+  - first:
+      213: 1127501422747663332
+    second: FreePack 2_5
+  - first:
+      213: -2214544297482802580
+    second: FreePack 2_6
+  - first:
+      213: -7012922642235955461
+    second: FreePack 2_7
+  - first:
+      213: 1755433802752559411
+    second: FreePack 2_8
+  - first:
+      213: 4956722008311052643
+    second: FreePack 2_9
+  - first:
+      213: 5613774702947884690
+    second: FreePack 2_10
+  - first:
+      213: -4556574785539899407
+    second: FreePack 2_11
+  - first:
+      213: 4258542757701259234
+    second: FreePack 2_12
+  - first:
+      213: 8564785608855591979
+    second: FreePack 2_13
+  - first:
+      213: -650393139660572331
+    second: FreePack 2_14
+  - first:
+      213: 3753641059067844189
+    second: FreePack 2_15
+  - first:
+      213: -1376951228329250386
+    second: FreePack 2_16
+  - first:
+      213: 3764985710694949120
+    second: FreePack 2_17
+  - first:
+      213: -7261649257388210851
+    second: FreePack 2_18
+  - first:
+      213: -6443094965140471188
+    second: FreePack 2_19
+  - first:
+      213: -126225957637890772
+    second: FreePack 2_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FreePack 2_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 255
+        width: 41
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3b06c6964c2655f0800000000000000
+      internalID: -768378004731196610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 255
+        width: 37
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90739fff1029371f0800000000000000
+      internalID: -1048333750960048375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_2
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 255
+        width: 95
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 618855dac179abdf0800000000000000
+      internalID: -163652287022659562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_3
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 255
+        width: 94
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5bff2fc48b908b70800000000000000
+      internalID: 8899283858398116702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_4
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 255
+        width: 59
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77d54fb3dcd2335f0800000000000000
+      internalID: -778227951107547785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_5
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 290
+        width: 22
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eb3f9af190b5af00800000000000000
+      internalID: 1127501422747663332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_6
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 293
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6aab21d1bb5441e0800000000000000
+      internalID: -2214544297482802580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_7
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 291
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf66b3053081dae90800000000000000
+      internalID: -7012922642235955461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_8
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 260
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33987cf2ebd8c5810800000000000000
+      internalID: 1755433802752559411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_9
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 260
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 369bdbb9760d9c440800000000000000
+      internalID: 4956722008311052643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_10
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 255
+        width: 15
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29e584a695228ed40800000000000000
+      internalID: 5613774702947884690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_11
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 127
+        width: 90
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ff7463df5bc3c0c0800000000000000
+      internalID: -4556574785539899407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_12
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 127
+        width: 59
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ef889d4312691b30800000000000000
+      internalID: 4258542757701259234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_13
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 127
+        width: 58
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2c1731122b3cd670800000000000000
+      internalID: 8564785608855591979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_14
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 127
+        width: 52
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5593e2aa2e659f6f0800000000000000
+      internalID: -650393139660572331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_15
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 143
+        width: 103
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d565f04d7ac971430800000000000000
+      internalID: 3753641059067844189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_16
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 58
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea1b56a372614ece0800000000000000
+      internalID: -1376951228329250386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_17
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 49
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 001e46e5e8aef3430800000000000000
+      internalID: 3764985710694949120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_18
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 0
+        width: 49
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5585e96970793b90800000000000000
+      internalID: -7261649257388210851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_19
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 0
+        width: 61
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c62c1b424478596a0800000000000000
+      internalID: -6443094965140471188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreePack 2_20
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 10
+        width: 120
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2d5f89092e8f3ef0800000000000000
+      internalID: -126225957637890772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FreePack 2_0: -768378004731196610
+      FreePack 2_1: -1048333750960048375
+      FreePack 2_10: 5613774702947884690
+      FreePack 2_11: -4556574785539899407
+      FreePack 2_12: 4258542757701259234
+      FreePack 2_13: 8564785608855591979
+      FreePack 2_14: -650393139660572331
+      FreePack 2_15: 3753641059067844189
+      FreePack 2_16: -1376951228329250386
+      FreePack 2_17: 3764985710694949120
+      FreePack 2_18: -7261649257388210851
+      FreePack 2_19: -6443094965140471188
+      FreePack 2_2: -163652287022659562
+      FreePack 2_20: -126225957637890772
+      FreePack 2_3: 8899283858398116702
+      FreePack 2_4: -778227951107547785
+      FreePack 2_5: 1127501422747663332
+      FreePack 2_6: -2214544297482802580
+      FreePack 2_7: -7012922642235955461
+      FreePack 2_8: 1755433802752559411
+      FreePack 2_9: 4956722008311052643
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
