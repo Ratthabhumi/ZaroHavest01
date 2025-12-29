@@ -795,6 +795,7 @@ MonoBehaviour:
   stepText: {fileID: 6637032}
   winPanel: {fileID: 547342102}
   winInfoText: {fileID: 1285562531}
+  jumpEffectPrefab: {fileID: 2936153044184093614, guid: 8cc0fdf5155fe824baabd800ecd2153d, type: 3}
   jumpSound: {fileID: 8300000, guid: 53c9b0a593dbafc4b85845c31fff475a, type: 3}
   fallSound: {fileID: 8300000, guid: bc964b39905256347a47e4d6bd5a8c0f, type: 3}
   winSound: {fileID: 8300000, guid: 5200160bffb4c2748a3bcc5a2987d030, type: 3}
