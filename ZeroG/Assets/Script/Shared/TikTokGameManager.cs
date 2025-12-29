@@ -304,6 +304,3 @@ public class TikTokGameManager : MonoBehaviour
     async void ReceiveMessages() { var buffer = new byte[1024]; while (ws.State == WebSocketState.Open) { try { var result = await ws.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None); string message = Encoding.UTF8.GetString(buffer, 0, result.Count); lock (messageQueue) messageQueue.Enqueue(message); } catch { break; } } }
     private async void OnDestroy() { if (ws != null && ws.State == WebSocketState.Open) await ws.CloseAsync(WebSocketCloseStatus.NormalClosure, "Closed", CancellationToken.None); }
 }
-
-[System.Serializable]
-public class TikTokEvent { public string type; public string name; public string msg; public int count; }
