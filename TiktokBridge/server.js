@@ -1,85 +1,104 @@
-// เรียกใช้ Library
+// server.js (ฉบับขึ้นไลฟ์จริง: ตัดคำสั่ง Test ทิ้ง)
 const { WebcastPushConnection } = require('tiktok-live-connector');
 const WebSocket = require('ws');
 
-// 🔴🔴🔴 แก้ชื่อช่อง TikTok ของเฮียตรงนี้ (สำคัญ!) 🔴🔴🔴
-let tiktokUsername = "mewmewnakub"; // ใส่ชื่อช่องเฮียที่นี่ (ไม่ต้องมี @)
+// 🔴🔴🔴 แก้ชื่อช่อง TikTok ของเฮียตรงนี้ 🔴🔴🔴
+let tiktokUsername = "mewmewnakub";
 
 // ========================================================
-
-// 1. สร้าง WebSocket Server (เพื่อคุยกับ Unity)
+// 1. สร้าง WebSocket Server
 const wss = new WebSocket.Server({ port: 8080 });
 
-// เก็บรายการ Connection ของ Unity
 wss.on('connection', function connection(ws) {
-    console.log('✅ Unity Connected to Bridge!');
+    console.log('✅ Unity Game Connected!');
 });
 
-// ฟังก์ชันสำหรับส่งข้อมูลไปหา Unity
 function sendToUnity(data) {
+    const jsonString = JSON.stringify(data);
     wss.clients.forEach(function each(client) {
         if (client.readyState === WebSocket.OPEN) {
-            client.send(JSON.stringify(data));
+            client.send(jsonString);
         }
     });
 }
 
-// 2. เชื่อมต่อกับ TikTok Live
+// 2. เชื่อมต่อ TikTok Live
 let tiktokLiveConnection = new WebcastPushConnection(tiktokUsername);
 
-// สั่ง Connect
-tiktokLiveConnection.connect().then(state => {
-    console.info(`🚀 Connected to TikTok RoomId: ${state.roomId}`);
-}).catch(err => {
-    console.error('❌ Failed to connect to TikTok:', err);
+function connectToTikTok() {
+    tiktokLiveConnection.connect().then(state => {
+        console.info(`🚀 Connected to TikTok RoomId: ${state.roomId}`);
+    }).catch(err => {
+        console.error('❌ Failed to connect (Retrying in 5s)...', err);
+        setTimeout(connectToTikTok, 5000);
+    });
+}
+connectToTikTok();
+
+// ========================================================
+// 🎯 โซนตั้งค่า Event (เหลือแค่ระบบหลัก)
+// ========================================================
+
+// 1. ส่งของขวัญ (Gift) -> พระเอกของงาน
+tiktokLiveConnection.on('gift', (data) => {
+    // กรองการส่งซ้ำ
+    if (data.giftType === 1 && !data.repeatEnd) {
+        return;
+    }
+
+    let displayName = data.nickname || data.uniqueId;
+    console.log(`🎁 [GIFT] ${displayName} sent ${data.giftName}`);
+
+    sendToUnity({
+        // ZaroHarvest
+        type: 'gift',
+        name: displayName,
+        msg: data.giftName,
+        count: 1,
+
+        // RNG GOD
+        eventName: 'gift',
+        username: displayName,
+        giftName: data.giftName,
+        giftId: data.giftId,
+        avatarUrl: data.profilePictureUrl
+    });
 });
 
-// ========================================================
-// 🎯 โซนตั้งค่า Event (Like / Gift / Follow)
-// ========================================================
-
-// 1. เมื่อมีคนกดใจ (Like) -> สะสมให้ฝนตก
+// 2. กดใจ (Like)
 tiktokLiveConnection.on('like', (data) => {
-    // data.likeCount คือจำนวนที่เขากดมาในชุดนี้
-    console.log(`${data.uniqueId} กดใจมา x${data.likeCount}`);
+    let displayName = data.nickname || data.uniqueId;
+    console.log(`❤️ [LIKE] ${displayName} x${data.likeCount}`);
 
     sendToUnity({
         type: 'like',
-        name: data.nickname || data.uniqueId, // ส่งชื่อคนกด (เอาไว้ขึ้นโชว์ตอนฝนตก)
-        count: data.likeCount
+        name: displayName,
+        count: data.likeCount,
+        eventName: 'like',
+        username: displayName,
+        avatarUrl: data.profilePictureUrl
     });
 });
 
-// 2. เมื่อมีคนส่งของขวัญ (Gift) -> เสกต้นไม้
-tiktokLiveConnection.on('gift', (data) => {
-    // กรองเฉพาะกุหลาบ (Rose) หรือจะเอาหมดก็ได้ (Unity ไปเช็คต่อเอง)
-    console.log(`${data.uniqueId} ส่งของขวัญ: ${data.giftName}`);
-
-    if (data.giftType === 1 && !data.repeatEnd) {
-        // ถ้าเป็นการส่งรัวๆ ให้รอจนจบชุดค่อยส่ง (Optional)
-        // หรือจะส่งเลยก็ได้
-    }
-
-    sendToUnity({
-        type: 'gift',
-        name: data.nickname || data.uniqueId, // ส่งชื่อคนเปย์
-        msg: data.giftName, // ส่งชื่อของขวัญ (เช่น Rose)
-        count: 1
-    });
-});
-
-// 3. เมื่อมีคนกดติดตาม (Follow) -> เสกพระอาทิตย์ (แทนการพิมพ์ Heart)
+// 3. กดติดตาม (Follow)
 tiktokLiveConnection.on('follow', (data) => {
-    console.log(`${data.uniqueId} เพิ่งกดติดตาม!`);
+    let displayName = data.nickname || data.uniqueId;
+    console.log(`➕ [FOLLOW] ${displayName}`);
 
     sendToUnity({
         type: 'follow',
-        name: data.nickname || data.uniqueId, // ส่งชื่อคนติดตาม
+        name: displayName,
+        eventName: 'follow',
+        username: displayName,
         count: 1
     });
 });
 
-// (แถม) แสดง Chat ใน Console ไว้ดูเล่น (แต่ไม่ได้ส่งไป Unity)
+// 4. แชท (Chat) - เหลือไว้แค่โชว์ในจอดำ (แต่ไม่ส่งคำสั่งหมุนไปเกมแล้ว)
 tiktokLiveConnection.on('chat', (data) => {
-    console.log(`${data.uniqueId}: ${data.comment}`);
+    let displayName = data.nickname || data.uniqueId;
+    console.log(`💬 ${displayName}: ${data.comment}`);
+    // ❌ ลบโค้ดเช็คคำว่า "roll" ทิ้งไปแล้ว ปลอดภัย 100%
 });
+
+console.log(`✨ Server Ready! (Production Mode - No Test Commands)`);
