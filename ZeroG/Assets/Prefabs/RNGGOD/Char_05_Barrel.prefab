@@ -346,7 +346,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 0}
   moveForce: 5
-  jumpForce: 5
 --- !u!114 &5828535397891482368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb13bceb6b0a56245a235e7c86bd549b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionEffectPrefab: {fileID: 0}
+  explosionEffectPrefab: {fileID: 6310028325181245366, guid: eaac1d1699db812428abfdaaef43c6ab, type: 3}
   explosionDelay: 1.5
 --- !u!1 &8648409780854948958
 GameObject:
