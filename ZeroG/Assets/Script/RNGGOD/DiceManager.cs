@@ -107,4 +107,19 @@ public class DiceManager : MonoBehaviour
             pc.SetupCharacter(playerName);
         }
     }
+
+    // 🔥 ฟังก์ชันล้างกระดาน (ลบตัวละครทิ้งหมดยกเว้นบอส)
+    public void ResetAllCharacters()
+    {
+        Debug.Log("🧹 คำสั่ง Reset ทำงาน! ล้างกระดาน...");
+        
+        // หาตัวละครทั้งหมดที่มีสคริปต์ PlayerController ติดอยู่
+        PlayerController[] allPlayers = FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
+        
+        foreach (PlayerController player in allPlayers)
+        {
+            // (ถ้าไม่อยากลบบอส ให้เช็คชื่อเอา เช่น if (!player.name.Contains("Boss")))
+            Destroy(player.gameObject);
+        }
+    }
 }

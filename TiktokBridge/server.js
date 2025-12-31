@@ -1,4 +1,4 @@
-// server.js (ฉบับขึ้นไลฟ์จริง: ตัดคำสั่ง Test ทิ้ง)
+// server.js (ฉบับสมบูรณ์: รองรับ Chat Command + Like System)
 const { WebcastPushConnection } = require('tiktok-live-connector');
 const WebSocket = require('ws');
 
@@ -36,12 +36,11 @@ function connectToTikTok() {
 connectToTikTok();
 
 // ========================================================
-// 🎯 โซนตั้งค่า Event (เหลือแค่ระบบหลัก)
+// 🎯 โซนตั้งค่า Event
 // ========================================================
 
-// 1. ส่งของขวัญ (Gift) -> พระเอกของงาน
+// 1. ส่งของขวัญ (Gift)
 tiktokLiveConnection.on('gift', (data) => {
-    // กรองการส่งซ้ำ
     if (data.giftType === 1 && !data.repeatEnd) {
         return;
     }
@@ -50,13 +49,13 @@ tiktokLiveConnection.on('gift', (data) => {
     console.log(`🎁 [GIFT] ${displayName} sent ${data.giftName}`);
 
     sendToUnity({
-        // ZaroHarvest
+        // สำหรับ ZaroHarvest (เผื่อใช้)
         type: 'gift',
         name: displayName,
         msg: data.giftName,
         count: 1,
 
-        // RNG GOD
+        // สำหรับ RNG GOD
         eventName: 'gift',
         username: displayName,
         giftName: data.giftName,
@@ -65,40 +64,50 @@ tiktokLiveConnection.on('gift', (data) => {
     });
 });
 
-// 2. กดใจ (Like)
+// 2. กดใจ (Like) - ✅ แก้ไข: เพิ่ม likeCount ให้ตรงกับ Unity
 tiktokLiveConnection.on('like', (data) => {
     let displayName = data.nickname || data.uniqueId;
-    console.log(`❤️ [LIKE] ${displayName} x${data.likeCount}`);
+    // console.log(`❤️ [LIKE] ${displayName} x${data.likeCount}`); // ปิด Log หน่อยก็ได้จะได้ไม่รก
 
     sendToUnity({
+        // ZaroHarvest
         type: 'like',
         name: displayName,
         count: data.likeCount,
+
+        // RNG GOD
         eventName: 'like',
         username: displayName,
-        avatarUrl: data.profilePictureUrl
+        avatarUrl: data.profilePictureUrl,
+        likeCount: data.likeCount // 🔥 สำคัญมาก! ต้องมีตัวนี้ Unity ถึงจะนับถูก
     });
 });
 
-// 3. กดติดตาม (Follow)
+// 3. แชท (Chat) - ✅ แก้ไข: เปิดให้ส่งแชทไป Unity (เพื่อเช็คคำสั่ง reset/roll)
+tiktokLiveConnection.on('chat', (data) => {
+    let displayName = data.nickname || data.uniqueId;
+    let msg = data.comment;
+
+    console.log(`💬 ${displayName}: ${msg}`);
+
+    sendToUnity({
+        eventName: 'chat',
+        username: displayName,
+        avatarUrl: data.profilePictureUrl,
+        comment: msg // 🔥 ส่งข้อความไปให้ Unity เช็คว่าเป็นคำสั่งไหม
+    });
+});
+
+// 4. กดติดตาม (Follow)
 tiktokLiveConnection.on('follow', (data) => {
     let displayName = data.nickname || data.uniqueId;
     console.log(`➕ [FOLLOW] ${displayName}`);
 
     sendToUnity({
-        type: 'follow',
-        name: displayName,
         eventName: 'follow',
         username: displayName,
         count: 1
     });
 });
 
-// 4. แชท (Chat) - เหลือไว้แค่โชว์ในจอดำ (แต่ไม่ส่งคำสั่งหมุนไปเกมแล้ว)
-tiktokLiveConnection.on('chat', (data) => {
-    let displayName = data.nickname || data.uniqueId;
-    console.log(`💬 ${displayName}: ${data.comment}`);
-    // ❌ ลบโค้ดเช็คคำว่า "roll" ทิ้งไปแล้ว ปลอดภัย 100%
-});
-
-console.log(`✨ Server Ready! (Production Mode - No Test Commands)`);
+console.log(`✨ Server Ready! (Live Mode: Chat Commands Enabled)`);

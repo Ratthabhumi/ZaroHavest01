@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1f14c8da7cf964695e75ef3852305c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 0}
+  nameText: {fileID: 3434178648849129958}
   moveForce: 5
 --- !u!114 &5828535397891482368
 MonoBehaviour:

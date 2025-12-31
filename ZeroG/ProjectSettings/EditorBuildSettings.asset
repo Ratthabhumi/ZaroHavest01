@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/1.unity
     guid: 840a2dce67880514583b076685b36557
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LadderGame.unity
     guid: 737088410f49a1b44a8166018a5add91
+  - enabled: 1
+    path: Assets/Scenes/RNGGOD.unity
+    guid: 78017f154832a2b4980b010021dc9b6e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

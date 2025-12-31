@@ -7,14 +7,19 @@ using System.Text;
 using System.Threading;
 using System.Diagnostics;
 
+// 1. อัปเกรดถังข้อมูลให้รองรับ Chat และ Like
 [System.Serializable]
 public class BridgeData
 {
-    public string eventName;
+    public string eventName;  // "gift", "chat", "like"
     public string username;
     public string giftName;
     public int giftId;
     public string avatarUrl;
+    
+    // 🔥 เพิ่ม 2 ตัวนี้เพื่อให้รับแชทกับจำนวนใจได้
+    public string comment;    
+    public int likeCount;     
 }
 
 public class TikTokBridgeRNG : MonoBehaviour
@@ -28,6 +33,10 @@ public class TikTokBridgeRNG : MonoBehaviour
 
     [Header("Game References")]
     public DiceManager diceManager;
+
+    [Header("Like System")]
+    public int likesTarget = 100; // เป้าหมายใจ
+    private int currentLikesAccumulated = 0; // ยอดสะสมปัจจุบัน
 
     private ClientWebSocket ws = new ClientWebSocket();
     private CancellationTokenSource cts = new CancellationTokenSource();
@@ -118,21 +127,65 @@ public class TikTokBridgeRNG : MonoBehaviour
         }
     }
 
+    // 🔥 หัวใจหลักอยู่ที่ฟังก์ชันนี้ครับ
     void ProcessData(string json)
     {
         try
         {
+            // แปลง JSON เป็นข้อมูล
             BridgeData data = JsonUtility.FromJson<BridgeData>(json);
-            
-            // ✅ เหลือเงื่อนไขเดียว: ต้องส่ง Rose หรือ ID 5655 เท่านั้น!
+
+            // --------------------------------------------------------
+            // 🎁 1. เช็คของขวัญ (เฉพาะกุหลาบ หรือ ID 5655)
+            // --------------------------------------------------------
             if (data.eventName == "gift" && (data.giftName == "Rose" || data.giftId == 5655))
             {
                 UnityEngine.Debug.Log($"🌹 {data.username} ส่งกุหลาบ!");
                 DoRoll(data.username, data.avatarUrl);
             }
-            // ❌ ส่วนที่เป็น test_roll ลบทิ้งไปแล้ว
+
+            // --------------------------------------------------------
+            // 💬 2. เช็คแชท (reset / roll)
+            // --------------------------------------------------------
+            else if (data.eventName == "chat")
+            {
+                string msg = data.comment.Trim().ToLower(); // ทำเป็นตัวเล็กตัดช่องว่าง
+
+                if (msg == "reset")
+                {
+                    diceManager.ResetAllCharacters();
+                    UnityEngine.Debug.Log($"🧹 {data.username} สั่ง Reset!");
+                }
+                else if (msg == "roll")
+                {
+                    UnityEngine.Debug.Log($"🎲 {data.username} สั่ง Roll ฟรี!");
+                    DoRoll(data.username, data.avatarUrl);
+                }
+            }
+
+            // --------------------------------------------------------
+            // ❤️ 3. เช็คยอดใจ (Like)
+            // --------------------------------------------------------
+            else if (data.eventName == "like")
+            {
+                currentLikesAccumulated += data.likeCount;
+                UnityEngine.Debug.Log($"❤️ รับใจเพิ่ม {data.likeCount} รวม: {currentLikesAccumulated}/{likesTarget}");
+
+                // ถ้าใจครบเป้า
+                if (currentLikesAccumulated >= likesTarget)
+                {
+                    currentLikesAccumulated -= likesTarget; // หักออก 100
+                    
+                    // สุ่มหมุนในชื่อพลังมวลชน
+                    DoRoll($"❤️ LIKE POWER ({data.username})", "");
+                }
+            }
         }
-        catch (Exception) { }
+        catch (Exception e) 
+        { 
+            // ดัก Error เงียบๆ หรือปริ้นท์ออกมาดูถ้าสงสัย
+             UnityEngine.Debug.LogWarning("Parse Error: " + e.Message);
+        }
     }
 
     void DoRoll(string username, string avatarUrl)
