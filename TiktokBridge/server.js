@@ -64,10 +64,12 @@ tiktokLiveConnection.on('gift', (data) => {
     });
 });
 
-// 2. กดใจ (Like) - ✅ แก้ไข: เพิ่ม likeCount ให้ตรงกับ Unity
+// 2. กดใจ (Like) - ✅ แก้ไข: เปิด Log ให้โชว์ใน CMD แล้ว
 tiktokLiveConnection.on('like', (data) => {
     let displayName = data.nickname || data.uniqueId;
-    // console.log(`❤️ [LIKE] ${displayName} x${data.likeCount}`); // ปิด Log หน่อยก็ได้จะได้ไม่รก
+
+    // ✅ เอา // ข้างหน้าออกแล้วครับ จะได้เห็นชื่อคนกดใจวิ่งรัวๆ
+    console.log(`❤️ [LIKE] ${displayName} sent ${data.likeCount} likes!`);
 
     sendToUnity({
         // ZaroHarvest
@@ -79,7 +81,7 @@ tiktokLiveConnection.on('like', (data) => {
         eventName: 'like',
         username: displayName,
         avatarUrl: data.profilePictureUrl,
-        likeCount: data.likeCount // 🔥 สำคัญมาก! ต้องมีตัวนี้ Unity ถึงจะนับถูก
+        likeCount: data.likeCount
     });
 });
 

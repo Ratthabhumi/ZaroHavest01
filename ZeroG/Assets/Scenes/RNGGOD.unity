@@ -1403,7 +1403,7 @@ MonoBehaviour:
   idleSpeed: 20
   spinSpeed: 800
   spinDuration: 2
-  gameDuration: 10
+  gameDuration: 120
   spawnPoint: {fileID: 907921925}
   characterPrefabs:
   - {fileID: 6603734244237108495, guid: 7ab538c593af30340aa724f2d3d8b957, type: 3}
