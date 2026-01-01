@@ -177,7 +177,7 @@ public class TikTokBridgeRNG : MonoBehaviour
                     currentLikesAccumulated -= likesTarget; // หักออก 100
                     
                     // สุ่มหมุนในชื่อพลังมวลชน
-                    DoRoll($"❤️ LIKE POWER ({data.username})", "");
+                    DoRoll($"LIKE POWER ({data.username})", "");
                 }
             }
         }
